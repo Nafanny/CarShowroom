@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class UserScan {
-
     private String carColor;
     private double engine;
     private int transmissionGears;
@@ -10,27 +9,19 @@ public class UserScan {
         return carColor;
     }
 
-    public void setCarColor(String carColor) {
-        this.carColor = carColor;
-    }
-
     public double getEngine() {
         return engine;
-    }
-
-    public void setEngine(double engine) {
-        this.engine = engine;
     }
 
     public int getTransmissionGears() {
         return transmissionGears;
     }
 
-    public void setTransmissionGears(int transmissionGears) {
+    public UserScan() {
+        this.carColor = carColor;
+        this.engine = engine;
         this.transmissionGears = transmissionGears;
-    }
 
-    void scanner () {
         System.out.println("Input parameters your car.");
         Scanner scan = new Scanner(System.in);
 
@@ -42,6 +33,11 @@ public class UserScan {
 
         System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
         this.transmissionGears = scan.nextInt();
+    }
+
+
+
+    void scanner () {
 
         if (engine > 1.2 & engine <= 1.7 & transmissionGears >= 3 & transmissionGears < 5){
             System.out.println("You have chosen a Russian car!");
@@ -51,7 +47,7 @@ public class UserScan {
             System.out.println("You have chosen a Germany car!");
             System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \n",carColor,engine,transmissionGears);
 
-        } else if (engine >= 3.0 & engine <= 6.0 & transmissionGears >= 6 & transmissionGears <= 8) {
+        } else if (engine >= 3.0 & engine <= 6.0 & transmissionGears >= 7 & transmissionGears <= 8) {
             System.out.println("You have chosen a American car!");
             System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \n",carColor,engine,transmissionGears);
 
