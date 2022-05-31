@@ -1,13 +1,11 @@
-public class Car {
+public class Car extends UserScan{
 
-        double engine;
-        int transmission;
+    public double maxSpeed(double eng, int trans){
 
-        double maxSpeed (double volumeEng, int transGears){
-            engine = volumeEng;
-            transmission = transGears;
-            double maxS = volumeEng * transGears;
-            System.out.println("Max speed your car is: " + maxS);
+        setEngine(eng);
+        setTransmissionGears(trans);
+        double maxS = eng * trans;
+        System.out.println("Max speed your car is: " + maxS);
         return maxS;
-        }
+    }
 }

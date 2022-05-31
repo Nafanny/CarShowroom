@@ -2,18 +2,46 @@ import java.util.Scanner;
 
 public class UserScan {
 
+    private String carColor;
+    private double engine;
+    private int transmissionGears;
+
+    public String getCarColor() {
+        return carColor;
+    }
+
+    public void setCarColor(String carColor) {
+        this.carColor = carColor;
+    }
+
+    public double getEngine() {
+        return engine;
+    }
+
+    public void setEngine(double engine) {
+        this.engine = engine;
+    }
+
+    public int getTransmissionGears() {
+        return transmissionGears;
+    }
+
+    public void setTransmissionGears(int transmissionGears) {
+        this.transmissionGears = transmissionGears;
+    }
+
     void scanner () {
         System.out.println("Input parameters your car.");
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
-        String carColor = scan.nextLine();
+        this.carColor = scan.nextLine();
 
         System.out.print("Enter the engine size from the range (1.3 - 6.0): ");
-        double engine = scan.nextFloat();
+        this.engine = scan.nextFloat();
 
         System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
-        int transmissionGears = scan.nextInt();
+        this.transmissionGears = scan.nextInt();
 
         if (engine > 1.2 & engine <= 1.7 & transmissionGears >= 3 & transmissionGears < 5){
             System.out.println("You have chosen a Russian car!");
