@@ -7,7 +7,7 @@ public class MainApp {
     us.scanner();
 
     Car speed = new Car();
-    speed.maxSpeed(us.getEngine(), us.getTransmissionGears());
+    speed.maxSpeed(us);
 
     }
 }
