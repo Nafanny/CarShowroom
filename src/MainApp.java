@@ -6,8 +6,6 @@ public class MainApp {
     UserScan us = new UserScan();
     us.scanner();
 
-    Car speed = new Car();
-    speed.maxSpeed(us);
-
+    Car speed = new Car(us);
     }
 }
