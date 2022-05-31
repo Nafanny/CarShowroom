@@ -15,8 +15,7 @@ public class UserScan {
         System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
         int transmissionGears = scan.nextInt();
 
-        if () {
-        } else if (engine > 1.2 & engine <= 1.7 & transmissionGears >= 3 & transmissionGears < 5){
+        if (engine > 1.2 & engine <= 1.7 & transmissionGears >= 3 & transmissionGears < 5){
             System.out.println("You have chosen a Russian car!");
             System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \n",carColor,engine,transmissionGears);
 
