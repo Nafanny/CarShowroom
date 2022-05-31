@@ -26,18 +26,16 @@ public class UserScan {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
-        this.carColor = scan.nextLine();
+        carColor = scan.nextLine();
 
         System.out.print("Enter the engine size from the range (1.3 - 6.0): ");
-        this.engine = scan.nextFloat();
+        engine = scan.nextFloat();
 
         System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
-        this.transmissionGears = scan.nextInt();
+        transmissionGears = scan.nextInt();
     }
 
-
-
-    void scanner () {
+    public void scanner () {
 
         if (engine > 1.2 & engine <= 1.7 & transmissionGears >= 3 & transmissionGears < 5){
             System.out.println("You have chosen a Russian car!");
