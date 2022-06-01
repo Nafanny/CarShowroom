@@ -58,6 +58,10 @@ public final class UserScan {
                 controlCar = new GerControl();
                 break;
             }
+            case AMERICAN -> {
+                controlCar = new USControl();
+                break;
+            }
         }
 
         if (controlCar != null) {
