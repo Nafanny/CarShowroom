@@ -5,8 +5,8 @@ public class UserScan {
     private double engine;
     private int transmissionGears;
 
-    public String getCarColor() {
-        return carColor;
+    public UserScan(String carColor) {
+        this.carColor = carColor;
     }
 
     public double getEngine() {
@@ -17,23 +17,6 @@ public class UserScan {
         return transmissionGears;
     }
 
-//    public void arrayColor(){
-//        String[] color = {"white", "black", "red", "green", "blue", "yellow"};
-//        List<String> listColor = Arrays.asList(color);
-//        color[0] = "white";
-//        color[1] = "black";
-//        color[2] = "red";
-//        color[3] = "green";
-//        color[4] = "blue";
-//        color[5] = "yellow";
-//        for (int i = 0; i < color.length; i++) {
-//            if (carColor.equals(color)){
-//                System.out.println("You choose this color: "+ carColor);
-//            }else
-//                System.out.println("There isn't this color!");
-//        }
-//
-//    }
     public UserScan() {
 
         System.out.println("Input parameters your car.");
@@ -41,6 +24,14 @@ public class UserScan {
 
         System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
         carColor = scan.nextLine();
+
+        String[] color = {"white", "black", "red", "green", "blue", "yellow"};
+        for (int i = 0; i < color.length; i++) {
+            if (carColor.equals(color[i])){
+                System.out.println("You choose this color: "+ carColor);
+            }else
+                System.out.println("There isn't this color!");
+        }
 
         System.out.print("Enter the engine size from the range (1,3 - 6,0): ");
         engine = scan.nextDouble();
