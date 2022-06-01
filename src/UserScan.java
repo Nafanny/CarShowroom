@@ -25,13 +25,16 @@ public final class UserScan {
             final String[] color = {"white", "black", "red", "green", "blue", "yellow"};
             boolean carMatch = false;
             for (int i = 0; i < color.length; i++) {
-                if (carColor.equals(color[i]));
-                    if(carMatch = true);
+                if (carColor.equals(color[i])) carMatch = true;
             }
-            if(carMatch){
-                System.out.println("OK");
-            }else 
+            while(!carMatch)
+            {
+                System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
                 carColor = scanner.nextLine();
+                for (int i = 0; i < color.length; i++) {
+                    if (carColor.equals(color[i])) carMatch = true;
+                }
+            }
 
             System.out.print("Enter the engine size from the range (1,3 - 6,0): ");
             engine = scanner.nextFloat();
