@@ -17,10 +17,24 @@ public class UserScan {
         return transmissionGears;
     }
 
+//    public void arrayColor(){
+//        String[] color = {"white", "black", "red", "green", "blue", "yellow"};
+//        List<String> listColor = Arrays.asList(color);
+//        color[0] = "white";
+//        color[1] = "black";
+//        color[2] = "red";
+//        color[3] = "green";
+//        color[4] = "blue";
+//        color[5] = "yellow";
+//        for (int i = 0; i < color.length; i++) {
+//            if (carColor.equals(color)){
+//                System.out.println("You choose this color: "+ carColor);
+//            }else
+//                System.out.println("There isn't this color!");
+//        }
+//
+//    }
     public UserScan() {
-        this.carColor = carColor;
-        this.engine = engine;
-        this.transmissionGears = transmissionGears;
 
         System.out.println("Input parameters your car.");
         Scanner scan = new Scanner(System.in);
@@ -28,11 +42,12 @@ public class UserScan {
         System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
         carColor = scan.nextLine();
 
-        System.out.print("Enter the engine size from the range (1.3 - 6.0): ");
-        engine = scan.nextFloat();
+        System.out.print("Enter the engine size from the range (1,3 - 6,0): ");
+        engine = scan.nextDouble();
 
         System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
         transmissionGears = scan.nextInt();
+        scan.close();
     }
 
     public void scanner () {
