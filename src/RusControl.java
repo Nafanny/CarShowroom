@@ -1,7 +1,7 @@
 public final class RusControl implements Controlable {
     @Override
     public String steering() {
-        return "is very BAD!";
+        return "very BAD!";
     }
 
     @Override

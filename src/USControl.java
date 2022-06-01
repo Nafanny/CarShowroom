@@ -1,7 +1,7 @@
 public class USControl implements Controlable{
     @Override
     public String steering() {
-        return "is NORMAL!";
+        return "NORMAL!";
     }
 
     @Override

@@ -5,6 +5,7 @@ public final class UserScan {
     private float engine;
     private int transmissionGears;
 
+
     public float getEngine() {
         return engine;
     }
@@ -22,12 +23,15 @@ public final class UserScan {
             carColor = scanner.nextLine();
 
             final String[] color = {"white", "black", "red", "green", "blue", "yellow"};
+            boolean carMatch = false;
             for (int i = 0; i < color.length; i++) {
-                if (carColor.equals(color[i])) {
-                    System.out.println("You choose this color: " + carColor);
-                } else
-                    System.out.println("There isn't this color!");
+                if (carColor.equals(color[i]));
+                    if(carMatch = true);
             }
+            if(carMatch){
+                System.out.println("OK");
+            }else 
+                carColor = scanner.nextLine();
 
             System.out.print("Enter the engine size from the range (1,3 - 6,0): ");
             engine = scanner.nextFloat();

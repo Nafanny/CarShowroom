@@ -5,6 +5,7 @@ public enum CarType {
     AMERICAN("USA", "American car"),
     ANY("ANY", "Any car");
 
+    private String age;
     private String code;
     private String name;
 

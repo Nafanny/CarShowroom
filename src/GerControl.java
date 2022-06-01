@@ -1,7 +1,7 @@
 public final class GerControl implements Controlable {
     @Override
     public String steering() {
-        return "is very COOL!";
+        return "very COOL!";
     }
 
     @Override
