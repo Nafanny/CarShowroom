@@ -1,15 +1,11 @@
 import java.util.Scanner;
 
-public class UserScan {
+public final class UserScan {
     private String carColor;
-    private double engine;
+    private float engine;
     private int transmissionGears;
 
-    public UserScan(String carColor) {
-        this.carColor = carColor;
-    }
-
-    public double getEngine() {
+    public float getEngine() {
         return engine;
     }
 
@@ -17,45 +13,56 @@ public class UserScan {
         return transmissionGears;
     }
 
-    public UserScan() {
 
+    public void scan() {
         System.out.println("Input parameters your car.");
-        Scanner scan = new Scanner(System.in);
 
-        System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
-        carColor = scan.nextLine();
+        try(final Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Choose car color from the list (white, black, blue, red, green, yellow): ");
+            carColor = scanner.nextLine();
 
-        String[] color = {"white", "black", "red", "green", "blue", "yellow"};
-        for (int i = 0; i < color.length; i++) {
-            if (carColor.equals(color[i])){
-                System.out.println("You choose this color: "+ carColor);
-            }else
-                System.out.println("There isn't this color!");
+            final String[] color = {"white", "black", "red", "green", "blue", "yellow"};
+            for (int i = 0; i < color.length; i++) {
+                if (carColor.equals(color[i])) {
+                    System.out.println("You choose this color: " + carColor);
+                } else
+                    System.out.println("There isn't this color!");
+            }
+
+            System.out.print("Enter the engine size from the range (1,3 - 6,0): ");
+            engine = scanner.nextFloat();
+
+            System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
+            transmissionGears = scanner.nextInt();
+        } catch (Exception e) {
+            System.out.print("error: " + e.getMessage());
         }
-
-        System.out.print("Enter the engine size from the range (1,3 - 6,0): ");
-        engine = scan.nextDouble();
-
-        System.out.print("Input count transmission gears from the list (3, 4, 5, 6, 7, 8): ");
-        transmissionGears = scan.nextInt();
-        scan.close();
     }
 
-    public void scanner () {
+    public void getScanResult () {
 
-        if (engine > 1.2 & engine <= 1.7 & transmissionGears >= 3 & transmissionGears < 5){
-            System.out.println("You have chosen a Russian car!");
-            System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \n",carColor,engine,transmissionGears);
+        final Car car = new Car();
+        final float carSpeed = car.getSpeed(this);
+        final CarType carType = car.getType(this);
 
-        } else if (engine >= 1.8 & engine <= 3.0 & transmissionGears >= 5 & transmissionGears <= 6) {
-            System.out.println("You have chosen a Germany car!");
-            System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \n",carColor,engine,transmissionGears);
+        System.out.printf("You have chosen a %s!\n", carType.getName());
+        System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \nSpeed: %.1f\n",carColor,engine,transmissionGears, carSpeed);
 
-        } else if (engine >= 3.0 & engine <= 6.0 & transmissionGears >= 7 & transmissionGears <= 8) {
-            System.out.println("You have chosen a American car!");
-            System.out.printf("Car color is: %s \nEngine volume: %.1f \nCount gears: %d \n",carColor,engine,transmissionGears);
+        Controlable controlCar = null;
+        switch (carType) {
+            case RUSSIAN -> {
+                controlCar = new RusControl();
+                break;
+            }
+            case GERMANY -> {
+                controlCar = new GerControl();
+                break;
+            }
+        }
 
-        }else
-            System.out.println("You have entered an invalid value!");
+        if (controlCar != null) {
+            System.out.printf("Car steering is: %s \nacceleration is: %d \nbrakingDistance is: %d \n",
+                    controlCar.steering(), controlCar.acceleration(), controlCar.brakingDistance());
+        }
     }
 }
